@@ -11,6 +11,7 @@
   - [Inclinaciones](#inclinaciones)
   - [Targets](#targets)
 - [First Person Controller](#first-person-controller)
+  - [Ponte a prueba](#ponte-a-prueba)
   - [Movimiento de Cámara](#movimiento-de-cámara)
   - [Gravedad](#gravedad)
 - [Proyectiles](#proyectiles)
@@ -58,7 +59,9 @@ Para identificar mejor los diferentes elementos debes crear algunos materiales q
 *   Naranja
 *   Blanco
 
-![](readme_assets/image12.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image12.png">
+</p>
 
 \*Todos los materiales parten del Standard Shader, en caso de tener una escena de tipo URP hay que generarlos como tipo Lit.
 
@@ -81,14 +84,18 @@ Inclinaciones
 
 Crear figuras con diferentes grados de inclinación para que el jugador pueda pasar a través de ellas. Se recomienda tener variaciones de inclinación de 10 en 10 grados, comenzando en -80 y siguiendo en -70. Así sucesivamente hasta llegar a la inclinación máxima de -50 o -45.
 
-![](readme_assets/image16.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image16.png">
+</p>
 
 Targets
 -----------
 
 Crear un target para los impactos de proyectiles. Puedes hacerlo con figuras primitivas, usando una esfera y dejándola plana en el eje Z, posteriormente agrega esferas planas cada vez más grandes.
 
-![](readme_assets/image15.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image15.png">
+</p>
 
 Ejemplo del acomodo visto desde el modo Wireframe
 
@@ -111,13 +118,9 @@ First Person Controller
 Para armar el First Person Controller, debes crear un cilindro e ir agregando en él todos los componentes necesarios.
 
 *   Agrega un GameObject de tipo Cápsula.
-
-*   Para que la cápsula deje de estar en el suelo basta con subirse en una unidad en Y.
-
+    *   Para que la cápsula deje de estar en el suelo basta con subirse en una unidad en Y.
 *   A este GameObject agregale como hijo la cámara principal, de manera que siga el movimiento del jugador.
-
-*   Y debe estar a 0.7 para que comparta la misma posición de la cabeza del jugador.
-
+    *   Y debe estar a 0.7 para que comparta la misma posición de la cabeza del jugador.
 *   Agrega el componente Character Controller al cilindro principal.
 *   Agrega un script para detectar el movimiento del personaje principal “PlayerMovementCtrl”.
 
@@ -126,28 +129,33 @@ El resultado debe ser algo parecido a lo que se muestra a continuación:
 ![](readme_assets/image20.png)
 
 Ponte a prueba
+--------------
 
 En el script de movimiento vas a usar los conceptos que ya conoces e incorporar nuevos, especiales para el Character Controller.
 
 *   Primero las variables.
+    *   Crea una variable pública para modificar la velocidad de movimiento del personaje, puedes iniciarla en 12.
+    *   Agrega una variable privada para acceder al componente de tipo Character Controller del Player
+    *   Agrega otra variable privada llamada velocity para guardar los cálculos del vector de movimiento resultante.
 
-*   Crea una variable pública para modificar la velocidad de movimiento del personaje, puedes iniciarla en 12.
-*   Agrega una variable privada para acceder al componente de tipo Character Controller del Player
-*   Agrega otra variable privada llamada velocity para guardar los cálculos del vector de movimiento resultante.
-
-![](readme_assets/image19.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image19.png">
+</p>
 
 *   En el método Start debes obtener la referencia al componente de tipo Character Controller.
 
-![](readme_assets/image23.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image23.png">
+</p>
 
 *   En el método Update vas a usar la ya conocida clase input con sus referencias a los ejes “Horizontal” y “Vertical” que te permiten identificar el desplazamiento que tendrá el objeto del jugador en los ejes X y Z.
 *   Guarda el Vector3 resultante del movimiento en X y Z en una variable.
 *   Finalmente, utiliza el método Move disponible del Character Controller para lograr el desplazamiento deseado.
+    *   El vector de dirección obtenido es multiplicado por la velocidad que deseas que tenga el movimiento y es escalado con la multiplicación ya conocida de Time.deltaTime para que el movimiento aplicado sea proporcional al tiempo transcurrido en cada cuadro.
 
-*   El vector de dirección obtenido es multiplicado por la velocidad que deseas que tenga el movimiento y es escalado con la multiplicación ya conocida de Time.deltaTime para que el movimiento aplicado sea proporcional al tiempo transcurrido en cada cuadro.
-
-![](readme_assets/image21.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image21.png">
+</p>
 
 La implementación de este código da como resultado lo siguiente:
 
@@ -175,27 +183,25 @@ Para entender el movimiento que deseas implementar, debes considerar lo siguient
 Entendiendo estas necesidades, puedes armar el script “MouseCtrl” con las siguientes características.
 
 *   Variables
+    *   Agrega una variable pública para establecer la sensibilidad del movimiento, esta será el equivalente a lo que usas normalmente para multiplicar la velocidad de movimiento o la fuerza de salto.
+    *   Agrega una variable pública para hacer referencia al GameObject Player (cilindro) para rotarlo cuando sea necesario.
+    *   Agrega una variable privada que contendrá el cálculo de la rotación en X.
 
-*   Agrega una variable pública para establecer la sensibilidad del movimiento, esta será el equivalente a lo que usas normalmente para multiplicar la velocidad de movimiento o la fuerza de salto.
-*   Agrega una variable pública para hacer referencia al GameObject Player (cilindro) para rotarlo cuando sea necesario.
-*   Agrega una variable privada que contendrá el cálculo de la rotación en X.
-
-![](readme_assets/image22.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image22.png">
+</p>
 
 *   Update
+    *   Lee los valores que arroja la lectura de la clase input para los eje X “Mouse X” y “Mouse Y” que ya están predefinidos en el input Manager.
+        *   Multiplica la lectura de los ejes por la sensibilidad, finalmente escala  con el Time.deltaTime.
+    *   Para la rotación de la cámara en el Eje X, leer el movimiento contrario del mouse en Y.
+        *   Utiliza la función Mathf.Clamp para identificar si el número indicado se encuentra dentro de un rango aceptable, en caso contrario regresará el valor máximo o mínimo establecidos.
+    *   Finalmente, usa el acceso a la posición rotación local para rotar la cámara en el ángulo necesario a través de la instrucción Quaternion.Euler que permite indicar los grados de rotación como si fuera un Vector3.
+    *   Para mover al jugador en el eje Y, únicamente es necesario utilizar la función Rotate y se desplazará en el eje Y dependiendo de la dirección del desplazamiento del mouse en el eje X.
 
-*   Lee los valores que arroja la lectura de la clase input para los eje X “Mouse X” y “Mouse Y” que ya están predefinidos en el input Manager.
-
-*   Multiplica la lectura de los ejes por la sensibilidad, finalmente escala  con el Time.deltaTime.
-
-*   Para la rotación de la cámara en el Eje X, leer el movimiento contrario del mouse en Y.
-
-*   Utiliza la función Mathf.Clamp para identificar si el número indicado se encuentra dentro de un rango aceptable, en caso contrario regresará el valor máximo o mínimo establecidos.
-
-*   Finalmente, usa el acceso a la posición rotación local para rotar la cámara en el ángulo necesario a través de la instrucción Quaternion.Euler que permite indicar los grados de rotación como si fuera un Vector3.
-*   Para mover al jugador en el eje Y, únicamente es necesario utilizar la función Rotate y se desplazará en el eje Y dependiendo de la dirección del desplazamiento del mouse en el eje X.
-
-![](readme_assets/image24.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image24.png">
+</p>
 
 Ahora vuelve a Unity, coloca el script en la cámara, realiza la referencia del Transform del GameObject Player para observar el resultado de la implementación.
 
@@ -203,7 +209,9 @@ Ahora vuelve a Unity, coloca el script en la cámara, realiza la referencia del 
 
 Para la dirección del mouse en el Editor es importante dar click al panel Game, de manera que la lectura del movimiento se pueda leer correctamente. Esto último lo puedes evitar si agregas una instrucción al script para que al iniciar el juego, el mouse siempre sea capturado en esta ventana y seguir su desplazamiento.
 
-![](readme_assets/image25.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image25.png">
+</p>
 
 Gravedad
 --------
@@ -217,22 +225,23 @@ Para lograr este control de la gravedad, debes realizar los cálculos de forma m
 Debes modificar el script “PlayerMovementCtrl” para agregar lo siguiente:
 
 *   Variables.
+    *   Agrega una variable pública para indicar el valor de la fuerza de gravedad, por defecto tendrá el valor natural -9.81.
+    *   Variable pública para indicar la altura que deseas lograr cuando el Player realice su salto. Por defecto lo pondrás en 3.
 
-*   Agrega una variable pública para indicar el valor de la fuerza de gravedad, por defecto tendrá el valor natural -9.81.
-*   Variable pública para indicar la altura que deseas lograr cuando el Player realice su salto. Por defecto lo pondrás en 3.
-
-![](readme_assets/image26.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image26.png">
+</p>
 
 *   Update.
+    *   En el método Update vas a agregar la lectura del input de tipo Button para el salto, usando el nombre predeterminado de “Jump” que permite saltar con la barra espaciadora.
+        *   Al presionar vas a modificar el vector de velocidad, únicamente en su componente Y que es el vertical.
+        *   Lo modificarás de acuerdo con la fórmula para calcular el salto de altura donde:
 
-*   En el método Update vas a agregar la lectura del input de tipo Button para el salto, usando el nombre predeterminado de “Jump” que permite saltar con la barra espaciadora.
+  <p align="center">
+  <img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image27.png">
+  </p>
 
-*   Al presionar vas a modificar el vector de velocidad, únicamente en su componente Y que es el vertical.
-*   Lo modificarás de acuerdo con la fórmula para calcular el salto de altura donde:
-
-![](readme_assets/image27.png)
-
-*   Finalmente, en el método Update restarás el factor de gravedad de cada cuadro escalando su resultado para cada tiempo que toma ejecutar cada frame.
+    *   Finalmente, en el método Update restarás el factor de gravedad de cada cuadro escalando su resultado para cada tiempo que toma ejecutar cada frame.
 
 ![](readme_assets/image28.png)
 
@@ -254,7 +263,9 @@ La solución será pintar una esfera en la parte inferior del Player para verifi
 
 Primero crea una nueva capa, dirígete a la sección de Layers y crea la capa “FloorMask”
 
-![](readme_assets/image29.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image29.png">
+</p>
 
 Agrega esta capa a todos los GameObject que conforman tanto el piso como las plataformas y escaleras. Recuerda que puedes hacerlo mediante una selección múltiple.
 
@@ -269,26 +280,23 @@ Ahora que ya tienes la capa, agrega con fines prácticos un objeto visible para 
 Ahora agrega las siguientes instrucciones al script “PlayerMovementCtrl”.
 
 *   Variables.
+    *   Agrega una variable pública para colocar en ella la referencia al Transform de la esfera que creaste como referencia.
+    *   Agrega una variable pública para identificar la capa de colisión que usarás para identificar a los GameObject que forman parte del  “piso”.
+    *   Agrega una variable privada de tipo booleano para evaluar si estás tocando el “piso”.
 
-*   Agrega una variable pública para colocar en ella la referencia al Transform de la esfera que creaste como referencia.
-*   Agrega una variable pública para identificar la capa de colisión que usarás para identificar a los GameObject que forman parte del  “piso”.
-*   Agrega una variable privada de tipo booleano para evaluar si estás tocando el “piso”.
-
-![](readme_assets/image30.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image30.png">
+</p>
 
 *   Update
-
-*   En el método Update la lógica será sencilla puesto que ya tienes todos los datos de entrada para procesarlos.
-*   Asigna cada frame a la variable isGrounded el resultado de Pyshics.CheckSphere, es decir, de la detección de colisión de la esfera.
-
-*   Para crear la esfera será necesaria la posición del GameObject que creaste como referencia.
-*   Agrega el tamaño de la esfera, que será igual al tamaño del radio de collider del GameObject de referencia.
-*   Finalmente, agrega la capa de colisión con la que deseas revisar si hay una colisión.
-
-*   Ahora solo agrega al bloque condicional del salto la revisión de tipo AND para verificar si la variable isGrounded es también verdadera.
-
-*   En caso de que el salto se lleve a cabo, vas a hacer falsa la variable isGrounded, esto indicará que dejaste de tocar el suelo.
-*   Cuando caigas, la esfera de colisión detectará el suelo y volverás a tener un valor verdadero en isGrounded.
+    *   En el método Update la lógica será sencilla puesto que ya tienes todos los datos de entrada para procesarlos.
+    *   Asigna cada frame a la variable isGrounded el resultado de Pyshics.CheckSphere, es decir, de la detección de colisión de la esfera.
+        *   Para crear la esfera será necesaria la posición del GameObject que creaste como referencia.
+        *   Agrega el tamaño de la esfera, que será igual al tamaño del radio de collider del GameObject de referencia.
+        *   Finalmente, agrega la capa de colisión con la que deseas revisar si hay una colisión.
+    *   Ahora solo agrega al bloque condicional del salto la revisión de tipo AND para verificar si la variable isGrounded es también verdadera.
+        *   En caso de que el salto se lleve a cabo, vas a hacer falsa la variable isGrounded, esto indicará que dejaste de tocar el suelo.
+        *   Cuando caigas, la esfera de colisión detectará el suelo y volverás a tener un valor verdadero en isGrounded.
 
 ![](readme_assets/image31.png)
 
@@ -301,12 +309,9 @@ Ahora tienes el Character Controller completamente funcional, ¡estás listo par
 Algo interesante y propio del Character Controller es que puedes ajustar dos de sus parámetros para que el personaje se pueda desplazar correctamente entre diferentes escenarios.
 
 *    Slop Limit.
-
-*   Este parámetro permite indicar qué tan inclinado puede estar un plano, pero seguirá permitiendo al jugador pasar sobre él.
-
+    *   Este parámetro permite indicar qué tan inclinado puede estar un plano, pero seguirá permitiendo al jugador pasar sobre él.
 *   Step Offset.
-
-*   Este parámetro permite indicar qué tan alto puede pasar objetos el Character Controller como si fueran escalones o simples objetos tirados.
+    *   Este parámetro permite indicar qué tan alto puede pasar objetos el Character Controller como si fueran escalones o simples objetos tirados.
 
 ![](readme_assets/m5s17_16.gif)
 
@@ -345,13 +350,17 @@ Es recomendable utilizar modelos que puedan ser interpretados con la configuraci
 
 Si elegiste usar el modelo propuesto e importaste todos los archivos, solo necesitas encontrar dentro de los archivos el Prefab de tu modelo que ya tiene todo lo necesario aplicado y pasarlo a la escena.
 
-![](readme_assets/image4.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image4.png">
+</p>
 
 ![](readme_assets/image5.png)
 
 Para la programación del arma, primero debes hacer un correcto posicionamiento de ella. El objetivo es que el arma siga tu mirada dentro del juego como cualquier otro FPS.
 
-![](readme_assets/image6.gif))
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image6.gif">
+</p>
 
 Soluciónalo con la técnica del emparentamiento de manera que el seguimiento de la posición se haga automáticamente.
 
@@ -372,20 +381,15 @@ Ahora pasemos directamente a crear el proyectil y a disparar con cada click, ya 
 Ahora es necesario crear el script que permitirá disparar el proyectil “GunCtrl”.
 
 *   Crea el script “GunCtrl”.
-*   Variables.
-
-*   Crea una variable pública que obtenga el Transform para guardar la referencia de la posición de la punta de la pistola.
-
-*   El modelo propuesto viene en partes, una relevante es la punta de la pistola. Para poder hacer un buen efecto de disparo, si tu modelo no la tiene, recuerda que puedes crear una con un objeto vacío y haciendo un posicionamiento/emparentamiento correcto.
-
-*   Crea una variable pública para tener una referencia a un GameObject del proyectil que vas a instanciar.
-*   Crea una variable pública que permita modificar la fuerza con la que disparas el proyectil.
-
-*   Update.
-
-*   Lo que agregarás solo será la función Input.GetButtonDown(“Fire1”) para detectar los clicks izquierdos del mouse o los otros botones configurados para este botón virtual –joystick button 0, mouse 0, mejor conocido como click izquierdo, y finalmente left ctrl–.
-*   Cuando detectes el click, vas a usar la función Instantiate para crear un nuevo proyectil justo en la cabeza de la pistola.
-*   Agrega finalmente una fuerza en la dirección hacia la que apunta la pistola.
+    *   Variables.
+        *   Crea una variable pública que obtenga el Transform para guardar la referencia de la posición de la punta de la pistola.
+            *   El modelo propuesto viene en partes, una relevante es la punta de la pistola. Para poder hacer un buen efecto de disparo, si tu modelo no la tiene, recuerda que puedes crear una con un objeto vacío y haciendo un posicionamiento/emparentamiento correcto.
+        *   Crea una variable pública para tener una referencia a un GameObject del proyectil que vas a instanciar.
+        *   Crea una variable pública que permita modificar la fuerza con la que disparas el proyectil.
+    *   Update.
+        *   Lo que agregarás solo será la función Input.GetButtonDown(“Fire1”) para detectar los clicks izquierdos del mouse o los otros botones configurados para este botón virtual –joystick button 0, mouse 0, mejor conocido como click izquierdo, y finalmente left ctrl–.
+        *   Cuando detectes el click, vas a usar la función Instantiate para crear un nuevo proyectil justo en la cabeza de la pistola.
+        *   Agrega finalmente una fuerza en la dirección hacia la que apunta la pistola.
 
 ![](readme_assets/image7.png)
 
@@ -395,7 +399,9 @@ Algo muy importante que puede causar problemas es la dirección del disparo. Si 
 
 Aprovecha el momento para crear un pequeño script en los proyectiles con el objetivo de desaparecerlos cuando choquen con cualquier cosa y que indiquen el nombre del GameObject con el que chocaste.
 
-![](readme_assets/image8.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image8.png">
+</p>
 
 Agrega estos scripts a los GameObject correspondientes, así podrás obtener el siguiente resultado.
 
@@ -405,19 +411,21 @@ Como cereza del pastel puedes agregar rápidamente la función para que destruya
 
 *   Crea una etiqueta que se llame target.
 *   Agrégala a todos los GameObject de tipo target.
-
-*   Puedes hacer una selección múltiple o agregarla al Prefab base y sobrescribir todos.
-
+    *   Puedes hacer una selección múltiple o agregarla al Prefab base y sobrescribir todos.
 *   Agrega una condicional en el script de la bala para identificar si el GameObject con el que chocaste tiene el tag de target.
 *   Si es así, destruye el target también.
 
-![](readme_assets/image9.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image9.png">
+</p>
 
 ![](readme_assets/m5s17_14.gif)
 
 Ya tienes los elementos básicos para comenzar a desarrollar un FPS, sin embargo, hace falta un par de mejoras de calidad de vida, una que es indispensable trabajar es una mira. Existen varias soluciones que puedes aplicar, la más sencilla es crear un GameObject de referencia que esté siempre al centro de la pantalla y hacer que la pistola siempre apunte y dispare en esta dirección.
 
-![](readme_assets/image10.png)
+<p align="center">
+<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image10.png">
+</p>
 
 La mejor solución es utilizar una herramienta que tienen las cámaras en Unity: crear rayos, mejor conocidos como RayCast. Estos rayos pueden servir para disparar eventos específicos cuando algo se encuentre en tu pantalla, sin embargo, usarás solo una pequeña parte de este potencial, aunque te recomendamos que [leas sobre el tema](https://docs.unity3d.com/ScriptReference/Physics.Raycast.html).
 
@@ -443,30 +451,20 @@ Reto semanal
 El reto de esta semana consiste en agregar a tu juego creado la capacidad para:
 
 *   UI.
-
-*   Contar cuantos targets tienes para pedirte que logres eliminar todos.
-*   Un contador de tiempo para eliminar los más posibles en menos de un minuto.
-
+    *   Contar cuantos targets tienes para pedirte que logres eliminar todos.
+    *   Un contador de tiempo para eliminar los más posibles en menos de un minuto.
 *   Animación.
-
-*   Agregar animaciones sencillas a algunos targets para que se encuentren en movimiento.
-
+    *   Agregar animaciones sencillas a algunos targets para que se encuentren en movimiento.
 *   Ambiente.
-
-*   Utiliza algún escenario gratuito de la Unity Asset Store para darle un mejor aspecto a tu juego, aquí te proponemos algunos.
-
-*   [https://assetstore.unity.com/packages/3d/environments/urban/abandoned-asylum-49137](https://assetstore.unity.com/packages/3d/environments/urban/abandoned-asylum-49137)
-*   [https://assetstore.unity.com/packages/3d/environments/landscapes/low-poly-simple-nature-pack-162153](https://assetstore.unity.com/packages/3d/environments/landscapes/low-poly-simple-nature-pack-162153)
-*   [https://assetstore.unity.com/packages/3d/environments/3d-free-modular-kit-85732](https://assetstore.unity.com/packages/3d/environments/3d-free-modular-kit-85732)
-*   [https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-styled-modular-pack-82913](https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-styled-modular-pack-82913)
-
+    *   Utiliza algún escenario gratuito de la Unity Asset Store para darle un mejor aspecto a tu juego, aquí te proponemos algunos.
+        *   [https://assetstore.unity.com/packages/3d/environments/urban/abandoned-asylum-49137](https://assetstore.unity.com/packages/3d/environments/urban/abandoned-asylum-49137)
+        *   [https://assetstore.unity.com/packages/3d/environments/landscapes/low-poly-simple-nature-pack-162153](https://assetstore.unity.com/packages/3d/environments/landscapes/low-poly-simple-nature-pack-162153)
+        *   [https://assetstore.unity.com/packages/3d/environments/3d-free-modular-kit-85732](https://assetstore.unity.com/packages/3d/environments/3d-free-modular-kit-85732)
+        *   [https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-styled-modular-pack-82913](https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-styled-modular-pack-82913)
 *   Audio.
-
-*   Agrega audio a tu juego para que se escuchen sonidos especiales al disparar y cuando la bala alcance a los targets.
-
+    *   Agrega audio a tu juego para que se escuchen sonidos especiales al disparar y cuando la bala alcance a los targets.
 *   Optimización.
-
-*   Agrega la lógica necesaria al juego para utilizar Pooling en los disparos.
+    *   Agrega la lógica necesaria al juego para utilizar Pooling en los disparos.
 
 Rescatando lo importante
 =========================
