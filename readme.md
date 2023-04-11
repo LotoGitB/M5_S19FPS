@@ -241,7 +241,7 @@ Debes modificar el script “PlayerMovementCtrl” para agregar lo siguiente:
   <img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image27.png">
   </p>
 
-    *   Finalmente, en el método Update restarás el factor de gravedad de cada cuadro escalando su resultado para cada tiempo que toma ejecutar cada frame.
+*   Finalmente, en el método Update restarás el factor de gravedad de cada cuadro escalando su resultado para cada tiempo que toma ejecutar cada frame.
 
 ![](readme_assets/image28.png)
 
@@ -330,7 +330,7 @@ En primer lugar, tómate tu tiempo para encontrar un modelo de arma que te guste
 *   [https://www.models-resource.com/](https://www.models-resource.com/)
 *   [https://www.turbosquid.com/](https://www.turbosquid.com/)
 
-Como ejemplo te proponemos usar el siguiente modelo de Asset Store: [https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-162872](https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-162872&sa=D&source=editors&ust=1681193078582918&usg=AOvVaw3isZ95kpvR5MY4qLOFp1w1)
+Como ejemplo te proponemos usar el siguiente modelo de Asset Store: [https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-162872](https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-162872)
 
 Adquiere este modelo a través de la Asset Store y pide que sea abierto en Unity.
 
@@ -346,7 +346,7 @@ Para instalarlo solo hace falta dar click en la opción de importar –cuando a�
 
 Es recomendable utilizar modelos que puedan ser interpretados con la configuración básica de 3D de tu proyecto. Sin embargo, si tienes este problema y deseas conservar tus assets, te recomendamos seguir el siguiente tutorial para que puedas cambiar tus materiales, esta es la solución en la mayoría de las veces que ocurre.
 
-[https://www.youtube.com/watch?v=lFUoJ2Td4tM&ab\_channel=Gunzz](https://www.youtube.com/watch?v%3DlFUoJ2Td4tM%26ab_channel%3DGunzz)
+[https://youtu.be/lFUoJ2Td4tM](https://youtu.be/lFUoJ2Td4tM)
 
 Si elegiste usar el modelo propuesto e importaste todos los archivos, solo necesitas encontrar dentro de los archivos el Prefab de tu modelo que ya tiene todo lo necesario aplicado y pasarlo a la escena.
 
