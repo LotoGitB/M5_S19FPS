@@ -23,7 +23,7 @@ Introducción
 ============
     
 
-Bienvenido a este módulo, sin duda este es uno de los módulos más divertidos e interesantes del curso. Una de las características que más amamos de los videojuegos es su capacidad de hacer sentir al jugador que es parte de un mundo, que debe rescatar a una princesa, detener una guerra entre naciones  e incluso combatir una horda de demonios.
+Te doy la bienvenida a este módulo, sin duda este es uno de los módulos más divertidos e interesantes del curso. Una de las características que más amamos de los videojuegos es su capacidad de hacer sentir al jugador que es parte de un mundo, que debe rescatar a una princesa, detener una guerra entre naciones  e incluso combatir una horda de demonios.
 
 Uno de los géneros que ha tenido mayor éxito entre los jugadores es sin duda los First Person Shooter (FPS), también en sus variantes de acción en tercera persona. Mismos que aunque pueden tener un desarrollo frenético y lleno de acción, también pueden poner a pensar, reír y seguramente llorar (como aquel momento donde Dominic pierde a su amada esposa en Gears of Wars 2).
 
