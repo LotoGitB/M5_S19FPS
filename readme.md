@@ -41,7 +41,7 @@ Existen dos acercamientos diferentes para llegar a esta meta, el primero es desa
 
 El segundo acercamiento es hacer uso de una herramienta de Unity, el Character Controller que ya tiene resueltos varios de los requerimientos con los que te vas a enfrentar en un modelo de primera persona. Sin embargo, no está diseñado a través de simulaciones físicas. Esta opción es ideal si quieres lograr algo parecido a los juegos FPS de acción frenética como DOOM.
 
-En este curso vas a comenzar con la segunda opción. Crearás tu propio modelo de First Person a partir de la herramienta del Character Controller.
+En este programa comenzaremos con la segunda opción. Crearás tu propio modelo de First Person a partir de la herramienta del Character Controller.
 
 Setup
 -----
