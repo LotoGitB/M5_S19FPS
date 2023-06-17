@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/Banner Github_Videojuegos_B.png">
+<img src="/readme_assets/Banner Github_Videojuegos_B.png">
 </p>
 
 ## Tabla de contenido
@@ -60,7 +60,7 @@ Para identificar mejor los diferentes elementos debes crear algunos materiales q
 *   Blanco
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image12.png">
+<img src="/readme_assets/image12.png">
 </p>
 
 \*Todos los materiales parten del Standard Shader, en caso de tener una escena de tipo URP hay que generarlos como tipo Lit.
@@ -85,7 +85,7 @@ Inclinaciones
 Crear figuras con diferentes grados de inclinación para que el jugador pueda pasar a través de ellas. Se recomienda tener variaciones de inclinación de 10 en 10 grados, comenzando en -80 y siguiendo en -70. Así sucesivamente hasta llegar a la inclinación máxima de -50 o -45.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image16.png">
+<img src="/readme_assets/image16.png">
 </p>
 
 Targets
@@ -94,7 +94,7 @@ Targets
 Crear un target para los impactos de proyectiles. Puedes hacerlo con figuras primitivas, usando una esfera y dejándola plana en el eje Z, posteriormente agrega esferas planas cada vez más grandes.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image15.png">
+<img src="/readme_assets/image15.png">
 </p>
 
 Ejemplo del acomodo visto desde el modo Wireframe
@@ -139,13 +139,13 @@ En el script de movimiento vas a usar los conceptos que ya conoces e incorporar 
     *   Agrega otra variable privada llamada velocity para guardar los cálculos del vector de movimiento resultante.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image19.png">
+<img src="/readme_assets/image19.png">
 </p>
 
 *   En el método Start debes obtener la referencia al componente de tipo Character Controller.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image23.png">
+<img src="/readme_assets/image23.png">
 </p>
 
 *   En el método Update vas a usar la ya conocida clase input con sus referencias a los ejes “Horizontal” y “Vertical” que te permiten identificar el desplazamiento que tendrá el objeto del jugador en los ejes X y Z.
@@ -154,7 +154,7 @@ En el script de movimiento vas a usar los conceptos que ya conoces e incorporar 
     *   El vector de dirección obtenido es multiplicado por la velocidad que deseas que tenga el movimiento y es escalado con la multiplicación ya conocida de Time.deltaTime para que el movimiento aplicado sea proporcional al tiempo transcurrido en cada cuadro.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image21.png">
+<img src="/readme_assets/image21.png">
 </p>
 
 La implementación de este código da como resultado lo siguiente:
@@ -188,7 +188,7 @@ Entendiendo estas necesidades, puedes armar el script “MouseCtrl” con las si
     *   Agrega una variable privada que contendrá el cálculo de la rotación en X.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image22.png">
+<img src="/readme_assets/image22.png">
 </p>
 
 *   Update
@@ -200,7 +200,7 @@ Entendiendo estas necesidades, puedes armar el script “MouseCtrl” con las si
     *   Para mover al jugador en el eje Y, únicamente es necesario utilizar la función Rotate y se desplazará en el eje Y dependiendo de la dirección del desplazamiento del mouse en el eje X.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image24.png">
+<img src="/readme_assets/image24.png">
 </p>
 
 Ahora vuelve a Unity, coloca el script en la cámara, realiza la referencia del Transform del GameObject Player para observar el resultado de la implementación.
@@ -210,7 +210,7 @@ Ahora vuelve a Unity, coloca el script en la cámara, realiza la referencia del 
 Para la dirección del mouse en el Editor es importante dar click al panel Game, de manera que la lectura del movimiento se pueda leer correctamente. Esto último lo puedes evitar si agregas una instrucción al script para que al iniciar el juego, el mouse siempre sea capturado en esta ventana y seguir su desplazamiento.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image25.png">
+<img src="/readme_assets/image25.png">
 </p>
 
 Gravedad
@@ -229,7 +229,7 @@ Debes modificar el script “PlayerMovementCtrl” para agregar lo siguiente:
     *   Variable pública para indicar la altura que deseas lograr cuando el Player realice su salto. Por defecto lo pondrás en 3.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image26.png">
+<img src="/readme_assets/image26.png">
 </p>
 
 *   Update.
@@ -238,7 +238,7 @@ Debes modificar el script “PlayerMovementCtrl” para agregar lo siguiente:
         *   Lo modificarás de acuerdo con la fórmula para calcular el salto de altura donde:
 
   <p align="center">
-  <img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image27.png">
+  <img src="/readme_assets/image27.png">
   </p>
 
 *   Finalmente, en el método Update restarás el factor de gravedad de cada cuadro escalando su resultado para cada tiempo que toma ejecutar cada frame.
@@ -264,7 +264,7 @@ La solución será pintar una esfera en la parte inferior del Player para verifi
 Primero crea una nueva capa, dirígete a la sección de Layers y crea la capa “FloorMask”
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image29.png">
+<img src="/readme_assets/image29.png">
 </p>
 
 Agrega esta capa a todos los GameObject que conforman tanto el piso como las plataformas y escaleras. Recuerda que puedes hacerlo mediante una selección múltiple.
@@ -285,7 +285,7 @@ Ahora agrega las siguientes instrucciones al script “PlayerMovementCtrl”.
     *   Agrega una variable privada de tipo booleano para evaluar si estás tocando el “piso”.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image30.png">
+<img src="/readme_assets/image30.png">
 </p>
 
 *   Update
@@ -351,7 +351,7 @@ Es recomendable utilizar modelos que puedan ser interpretados con la configuraci
 Si elegiste usar el modelo propuesto e importaste todos los archivos, solo necesitas encontrar dentro de los archivos el Prefab de tu modelo que ya tiene todo lo necesario aplicado y pasarlo a la escena.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image4.png">
+<img src="/readme_assets/image4.png">
 </p>
 
 ![](readme_assets/image5.png)
@@ -359,7 +359,7 @@ Si elegiste usar el modelo propuesto e importaste todos los archivos, solo neces
 Para la programación del arma, primero debes hacer un correcto posicionamiento de ella. El objetivo es que el arma siga tu mirada dentro del juego como cualquier otro FPS.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image6.gif">
+<img src="/readme_assets/image6.gif">
 </p>
 
 Soluciónalo con la técnica del emparentamiento de manera que el seguimiento de la posición se haga automáticamente.
@@ -400,7 +400,7 @@ Algo muy importante que puede causar problemas es la dirección del disparo. Si 
 Aprovecha el momento para crear un pequeño script en los proyectiles con el objetivo de desaparecerlos cuando choquen con cualquier cosa y que indiquen el nombre del GameObject con el que chocaste.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image8.png">
+<img src="/readme_assets/image8.png">
 </p>
 
 Agrega estos scripts a los GameObject correspondientes, así podrás obtener el siguiente resultado.
@@ -416,7 +416,7 @@ Como cereza del pastel puedes agregar rápidamente la función para que destruya
 *   Si es así, destruye el target también.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image9.png">
+<img src="/readme_assets/image9.png">
 </p>
 
 ![](readme_assets/m5s17_14.gif)
@@ -424,7 +424,7 @@ Como cereza del pastel puedes agregar rápidamente la función para que destruya
 Ya tienes los elementos básicos para comenzar a desarrollar un FPS, sin embargo, hace falta un par de mejoras de calidad de vida, una que es indispensable trabajar es una mira. Existen varias soluciones que puedes aplicar, la más sencilla es crear un GameObject de referencia que esté siempre al centro de la pantalla y hacer que la pistola siempre apunte y dispare en esta dirección.
 
 <p align="center">
-<img src="https://github.com/U-Camp/7M_Videojuegos_M5_S17/raw/master/readme_assets/image10.png">
+<img src="/readme_assets/image10.png">
 </p>
 
 La mejor solución es utilizar una herramienta que tienen las cámaras en Unity: crear rayos, mejor conocidos como RayCast. Estos rayos pueden servir para disparar eventos específicos cuando algo se encuentre en tu pantalla, sin embargo, usarás solo una pequeña parte de este potencial, aunque te recomendamos que [leas sobre el tema](https://docs.unity3d.com/ScriptReference/Physics.Raycast.html).
