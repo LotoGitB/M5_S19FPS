@@ -12,7 +12,7 @@ public class BulletCtrl : MonoBehaviour
     Debug.Log(other.gameObject.name);
     if (other.gameObject.tag == "Target")
     {
-      Destroy(other.gameObject);
+      //Destroy(other.gameObject);
     }
     Destroy(gameObject);
   }
